@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daxoppgave</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Test side</h1>
+
+    <img src="ed209bilde1. I.webp" alt="">
+
+    <h2>AI Art Galleri</h2>
+
+    <img id="dynamicImage"  alt="Dynamic Image">
+
+    <script>
+
+    const imgList = [
+        'green.png',
+        'red.png',
+        'blue.png',
+    ];
+
+    function updateImage() {
+        const dynamicImg = document.getElementById('dynamicImage');
+        const currentIndex = imgList.indexOf(dynamicImg.src.split('/').pop());
+        const nextIndex = (currentIndex + 1) % imgList.length;
+        dynamicImg.src = imgList[nextIndex];
+        // Call the function recursively after 5 seconds
+        setTimeout(updateImage, 5000);
+    }
+
+    // Initial call to start the image updating
+    updateImage();
+
+    </script>
+
+</body>
+</html>
